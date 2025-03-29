@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">DevPortfolio</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 bg-gradient-to-r from-blue-600 to-indigo-800 text-white">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <img src="/api/placeholder/200/200" alt="Profile Photo" class="w-40 h-40 rounded-full border-4 border-white shadow-xl mb-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">Full Stack Developer</h1>
+            <p class="text-xl text-center max-w-2xl mb-8">Building modern web applications with innovative technologies</p>
+            <div class="flex space-x-4">
+                <a href="#contact" class="bg-white text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Hire Me</a>
+                <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition">My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-full md:w-1/2">
+                    <img src="/api/placeholder/600/400" alt="Working" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Passionate Developer</h3>
+                    <p class="text-gray-600 mb-4">Hello! I'm a full-stack developer with a passion for building clean, efficient, and user-friendly web applications. I specialize in modern web technologies and focus on creating scalable solutions.</p>
+                    <p class="text-gray-600 mb-6">With expertise in both front-end and back-end development, I enjoy tackling complex problems and turning them into simple, elegant solutions. My goal is to always deliver high-quality code that meets business objectives.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-github text-2xl"></i></a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <!-- Skill Card: HTML -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-orange-500 mb-4">
+                        <i class="fab fa-html5 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">HTML</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-orange-500 h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: CSS -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fab fa-css3-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">CSS</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: Tailwind -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-teal-500 mb-4">
+                        <i class="fab fa-css3 text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Tailwind</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-teal-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: JavaScript -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fab fa-js text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">JavaScript</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: Git -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-red-500 mb-4">
+                        <i class="fab fa-git-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Git</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-red-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: PHP -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fab fa-php text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">PHP</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-indigo-500 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: Laravel -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-red-600 mb-4">
+                        <i class="fab fa-laravel text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Laravel</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-red-600 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: Docker -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fab fa-docker text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">Docker</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: MySQL -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-blue-800 mb-4">
+                        <i class="fas fa-database text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">MySQL</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-blue-800 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Card: PostgreSQL -->
+                <div class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center hover:shadow-lg transition">
+                    <div class="text-blue-400 mb-4">
+                        <i class="fas fa-database text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold">PostgreSQL</h3>
+                    <div class="mt-3 w-full bg-gray-200 rounded-full">
+                        <div class="bg-blue-400 h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="/api/placeholder/400/250" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A full-featured e-commerce platform built with Laravel, MySQL, and JavaScript.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Laravel</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">MySQL</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Docker</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="/api/placeholder/400/250" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">A collaborative task management application with real-time updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded">PHP</span>
+                            <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">Laravel</span>
+                            <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs rounded">Tailwind</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">PostgreSQL</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="/api/placeholder/400/250" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                        <p class="text-gray-600 mb-4">A responsive portfolio website built with HTML, CSS, and Tailwind.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">HTML</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">CSS</span>
+                            <span class="px-2 py-1 bg-teal-100 text-teal-800 text-xs rounded">Tailwind</span>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Live Demo</a>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                    <p class="mb-6">Feel free to reach out! I'm open to discussing new projects, opportunities, or just having a chat.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-400 mt-1 mr-4"></i>
+                            <span>email@example.com</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-blue-400 mt-1 mr-4"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-4"></i>
+                            <span>San Francisco, CA</span>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex space-x-4">
+                        <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-github text-2xl"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-linkedin text-2xl"></i></a>
+                        <a href="#" class="text-blue-400 hover:text-blue-300"><i class="fab fa-twitter text-2xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Email</label>
+                            <input type="email" id="email" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded font-semibold hover:bg-blue-700 transition w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-xl font-bold">DevPortfolio</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                    <a href="#about" class="hover:text-blue-400 transition">About</a>
+                    <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+                    <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-6">
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 DevPortfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('nav button').addEventListener('click', function() {
+            const nav = document.querySelector('nav .hidden');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('w-full');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-16');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('bg-gray-900');
+            nav.classList.toggle('p-4');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(
