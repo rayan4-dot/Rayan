@@ -3,72 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rayan - Full Stack Maverick</title>
+    <title>Rayan - Full Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
         /* Custom Animations */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
         }
 
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px #3b82f6; }
-            50% { text-shadow: 0 0 20px #3b82f6, 0 0 30px #3b82f6; }
-            100% { text-shadow: 0 0 10px #3b82f6; }
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #60a5fa, 0 0 10px #60a5fa; }
+            50% { text-shadow: 0 0 20px #60a5fa, 0 0 30px #60a5fa; }
+            100% { text-shadow: 0 0 5px #60a5fa, 0 0 10px #60a5fa; }
         }
 
-        @keyframes rotateIn {
-            from { transform: rotateY(-90deg); opacity: 0; }
-            to { transform: rotateY(0deg); opacity: 1; }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        .hero-float {
-            animation: float 6s ease-in-out infinite;
+        @keyframes flip {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(180deg); }
         }
 
-        .glow-text {
-            animation: textGlow 2s ease-in-out infinite;
-        }
-
+        .hero-float { animation: float 4s ease-in-out infinite; }
+        .glow { animation: glow 2s ease-in-out infinite; }
+        .slide-in { animation: slideIn 1s ease-out; }
         .skill-card {
-            transition: all 0.4s ease;
+            transition: all 0.5s ease;
             transform-style: preserve-3d;
+            perspective: 1000px;
         }
-
         .skill-card:hover {
-            transform: rotateY(180deg) scale(1.1);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            transform: rotateY(180deg) scale(1.05);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
         }
-
         .skill-card .front, .skill-card .back {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            border-radius: 1rem;
         }
-
         .skill-card .back {
             transform: rotateY(180deg);
-            background: #1e40af;
+            background: linear-gradient(135deg, #1e3a8a, #60a5fa);
         }
-
         .project-card {
             transition: all 0.4s ease;
         }
-
         .project-card:hover {
-            transform: translateY(-15px) rotate(2deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen overflow-x-hidden">
+<body class="bg-gray-900 text-white min-h-screen font-sans">
     <!-- Navigation -->
-    <nav class="bg-gray-800/80 backdrop-blur-md p-6 fixed w-full z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold glow-text">Rayan</h1>
+    <nav class="bg-gray-800/90 backdrop-blur-md fixed w-full z-50 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold glow">Rayan</h1>
             <div class="space-x-8 text-lg">
                 <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
                 <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
@@ -79,104 +85,133 @@
 
     <!-- Hero Section -->
     <section class="h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900"></div>
-        <div class="text-center z-10">
-            <h1 class="text-7xl md:text-8xl font-extrabold mb-6 hero-float glow-text">
+        <div id="particles-js"></div>
+        <div class="text-center z-10 container mx-auto px-6">
+            <h1 class="text-6xl md:text-8xl font-extrabold mb-6 hero-float glow">
                 Rayan
             </h1>
-            <p class="text-2xl md:text-4xl text-gray-300 mb-8 animate-[fadeIn_1s_ease-in]">
-                Full Stack Web Maverick
-            </p>
-            <button class="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full text-xl 
-                          transition-all duration-300 hover:scale-110 shadow-lg shadow-blue-500/50">
-                Unleash My Code
-            </button>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-8 slide-in" id="typed-text"></p>
+            <a href="#projects" class="inline-block bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-full text-xl 
+                transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/30">
+                Explore My Work
+            </a>
         </div>
-        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-900 to-transparent"></div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="container mx-auto py-24 px-4">
-        <h2 class="text-5xl font-bold mb-12 text-center glow-text">Who Am I</h2>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto text-center leading-relaxed">
-            I'm Rayan, a junior full stack warrior who breathes code and conquers challenges. 
-            Armed with cutting-edge tech, I craft digital experiences that push boundaries 
-            and defy expectations.
-        </p>
+    <section id="about" class="container mx-auto py-24 px-6">
+        <h2 class="text-5xl font-bold mb-12 text-center glow">About Me</h2>
+        <div class="max-w-3xl mx-auto text-center text-gray-300 text-lg leading-relaxed slide-in">
+            <p>
+                I’m Rayan, a dedicated Junior Full Stack Web Developer with a passion for crafting robust, scalable web solutions. 
+                With expertise across the development stack, I transform ideas into seamless digital experiences, 
+                leveraging modern technologies to deliver excellence.
+            </p>
+        </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="container mx-auto py-24 px-4">
-        <h2 class="text-5xl font-bold mb-16 text-center glow-text">Arsenal</h2>
+    <section id="skills" class="container mx-auto py-24 px-6 bg-gray-800/50">
+        <h2 class="text-5xl font-bold mb-16 text-center glow">Technical Expertise</h2>
         <div id="skills-container" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-            <!-- Skills will be dynamically added here -->
+            <!-- Skills dynamically added -->
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="container mx-auto py-24 px-4">
-        <h2 class="text-5xl font-bold mb-16 text-center glow-text">Victories</h2>
+    <section id="projects" class="container mx-auto py-24 px-6">
+        <h2 class="text-5xl font-bold mb-16 text-center glow">Featured Projects</h2>
         <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-            <!-- Projects will be dynamically added here -->
+            <!-- Projects dynamically added -->
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-8 text-center">
-        <p class="text-gray-400 text-lg">© 2025 Rayan - Code Conqueror</p>
+    <footer class="bg-gray-800 py-10 text-center">
+        <p class="text-gray-400 text-lg">© 2025 Rayan | Crafted with Precision</p>
     </footer>
 
     <script>
+        // Particles.js Config
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#60a5fa' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#60a5fa', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Typing Effect
+        const roles = ['Full Stack Developer', 'Code Architect', 'Tech Innovator'];
+        let roleIndex = 0, charIndex = 0;
+        const typedText = document.getElementById('typed-text');
+        function type() {
+            if (charIndex < roles[roleIndex].length) {
+                typedText.textContent += roles[roleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase() {
+            if (charIndex > 0) {
+                typedText.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(type, 500);
+            }
+        }
+        type();
+
         // Skills Data
-        const skills = [
-            'HTML', 'CSS', 'Tailwind', 'JavaScript', 'Git', 'PHP',
-            'Laravel', 'Docker', 'MySQL', 'PostgreSQL', 'REST API'
-        ];
-
-        // Projects Data
-        const projects = [
-            { name: 'Youdemy', tech: ['PHP', 'JavaScript', 'Tailwind', 'HTML', 'MySQL'], 
-              desc: 'Learning platform that rivals the masters' },
-            { name: 'Blogging', tech: ['PHP', 'JavaScript', 'Tailwind', 'HTML', 'MySQL'], 
-              desc: 'Words that cut through the digital noise' },
-            { name: 'HR Management', tech: ['Laravel', 'Blade', 'JavaScript', 'MySQL', 'Docker'], 
-              desc: 'Commanding workforce efficiency' },
-            { name: 'E-learning', tech: ['Postman', 'Laravel', 'MySQL'], 
-              desc: 'Knowledge delivery system' },
-            { name: 'Crunchyroll Clone', tech: ['Laravel', 'Blade', 'JavaScript', 'AJAX', 'Tailwind', 'MySQL', 'Docker', 'Sockets'], 
-              desc: 'Streaming empire reborn' }
-        ];
-
-        // Render Skills
+        const skills = ['HTML', 'CSS', 'Tailwind', 'JavaScript', 'Git', 'PHP', 'Laravel', 'Docker', 'MySQL', 'PostgreSQL', 'REST API'];
         const skillsContainer = document.getElementById('skills-container');
-        skills.forEach((skill, index) => {
+        skills.forEach((skill, i) => {
             const skillElement = document.createElement('div');
-            skillElement.className = 'skill-card h-40 w-full relative animate-[rotateIn_0.5s_ease]';
-            skillElement.style.animationDelay = `${index * 0.1}s`;
+            skillElement.className = 'skill-card h-40 relative';
+            skillElement.style.animation = `slideIn 0.5s ease ${i * 0.1}s both`;
             skillElement.innerHTML = `
-                <div class="front bg-gray-800 rounded-xl flex items-center justify-center h-full">
-                    <p class="text-2xl font-bold">${skill}</p>
+                <div class="front bg-gray-700 flex items-center justify-center h-full">
+                    <p class="text-xl font-semibold">${skill}</p>
                 </div>
-                <div class="back rounded-xl flex items-center justify-center h-full">
-                    <p class="text-xl text-white">Mastered</p>
+                <div class="back flex items-center justify-center h-full">
+                    <p class="text-lg font-bold text-white">Proficient</p>
                 </div>
             `;
             skillsContainer.appendChild(skillElement);
         });
 
-        // Render Projects
+        // Projects Data
+        const projects = [
+            { name: 'Youdemy', tech: ['PHP', 'JavaScript', 'Tailwind', 'HTML', 'MySQL'], desc: 'A robust e-learning platform.' },
+            { name: 'Blogging', tech: ['PHP', 'JavaScript', 'Tailwind', 'HTML', 'MySQL'], desc: 'Dynamic blogging system.' },
+            { name: 'HR Management', tech: ['Laravel', 'Blade', 'JavaScript', 'MySQL', 'Docker'], desc: 'Streamlined HR solution.' },
+            { name: 'E-learning', tech: ['Postman', 'Laravel', 'MySQL'], desc: 'Modern learning management.' },
+            { name: 'Crunchyroll Clone', tech: ['Laravel', 'Blade', 'JavaScript', 'AJAX', 'Tailwind', 'MySQL', 'Docker', 'Sockets'], desc: 'Streaming service replica.' }
+        ];
         const projectsContainer = document.getElementById('projects-container');
-        projects.forEach((project, index) => {
+        projects.forEach((project, i) => {
             const projectElement = document.createElement('div');
-            projectElement.className = 'project-card bg-gray-800/90 p-8 rounded-2xl backdrop-blur-sm';
-            projectElement.style.animation = `fadeIn 0.5s ease ${index * 0.2}s both`;
+            projectElement.className = 'project-card bg-gray-800 p-8 rounded-2xl';
+            projectElement.style.animation = `slideIn 0.5s ease ${i * 0.2}s both`;
             projectElement.innerHTML = `
-                <h3 class="text-3xl font-bold mb-4 text-blue-400">${project.name}</h3>
-                <p class="text-gray-300 mb-6 text-lg">${project.desc}</p>
-                <div class="flex flex-wrap gap-3">
-                    ${project.tech.map(tech => 
-                        `<span class="bg-blue-900/50 text-blue-200 text-sm px-3 py-1 rounded-full border border-blue-500/50">${tech}</span>`
-                    ).join('')}
+                <h3 class="text-2xl font-bold mb-4 text-blue-400">${project.name}</h3>
+                <p class="text-gray-300 mb-6">${project.desc}</p>
+                <div class="flex flex-wrap gap-2">
+                    ${project.tech.map(tech => `<span class="bg-blue-900/50 text-blue-200 text-sm px-3 py-1 rounded-full">${tech}</span>`).join('')}
                 </div>
             `;
             projectsContainer.appendChild(projectElement);
@@ -184,13 +219,11 @@
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                document.querySelector(anchor.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
 </body>
-        </html>
+</html>
