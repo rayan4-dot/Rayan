@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rayan</title>
+  <title>Rayan Elguerdaoui | Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Rayan Elguerdaoui, a Junior Full Stack Developer specializing in Laravel, React, and modern web technologies.">
+  <meta name="keywords" content="full stack developer, web developer, Laravel, React, portfolio, Rayan Elguerdaoui">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
 
     :root {
       --primary: #2563eb;
@@ -100,21 +115,17 @@
       opacity: 1;
     }
 
-    /* Skills Section CSS - Brutal Visibility */
     #skills {
-      background-color: #1e293b; /* Match bg-slate-800/50 */
-      padding: 5rem 1.5rem; /* Match py-20 px-6 */
-      min-height: 400px; /* Force space */
+      background-color: #1e293b;
+      padding: 5rem 1.5rem;
+      min-height: 400px;
     }
 
     .skill-card {
-      background-color: #334155; /* bg-slate-700 */
-      border-radius: 1rem; /* rounded-2xl */
-      padding: 1.5rem; /* p-6 */
+      background-color: #334155;
+      border-radius: 1rem;
+      padding: 1.5rem;
       text-align: center;
-      opacity: 1 !important; /* No hiding */
-      display: block !important; /* Force visibility */
-      min-height: 150px; /* Ensure it renders */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
@@ -157,12 +168,22 @@
     .mobile-menu.open {
       transform: translateX(0);
     }
+
+    /* Accessibility */
+    input:focus, button:focus, a:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+
+    .text-slate-400 {
+      color: #cbd5e1;
+    }
   </style>
 </head>
 <body class="min-h-screen">
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="mobile-menu">
-    <button id="close-menu" class="absolute top-4 right-4 text-3xl text-white">×</button>
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-labelledby="mobile-menu-title">
+    <button id="close-menu" class="absolute top-4 right-4 text-3xl text-white" aria-label="Close mobile menu">×</button>
     <div class="flex flex-col space-y-6 mt-16 text-xl px-6">
       <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
       <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
@@ -176,16 +197,16 @@
   <!-- Header -->
   <header class="fixed w-full bg-slate-900/80 backdrop-blur-md z-40 py-4">
     <div class="container mx-auto px-6 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold gradient-text">Rayan.</a>
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="#home" class="nav-link">Home</a>
+      <a href="#home" class="text-2xl font-bold gradient-text" aria-label="Rayan's Portfolio Home">Rayan.</a>
+      <nav class="hidden md:flex items-center space-x-8" role="navigation">
+        <a href="#home" class="nav-link" aria-current="page">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#experience" class="nav-link">Education</a>
         <a href="#contact" class="btn bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-white transition-all">Contact</a>
       </nav>
-      <button id="menu-button" class="text-3xl md:hidden">☰</button>
+      <button id="menu-button" class="text-3xl md:hidden" aria-label="Open mobile menu">☰</button>
     </div>
   </header>
 
@@ -234,12 +255,11 @@
         <div class="md:w-1/2">
           <div class="relative">
             <div class="w-full aspect-square rounded-2xl bg-slate-800 gradient-border overflow-hidden">
-              <img src="rayan.jpeg" alt="">
+              <img src="rayan.jpeg" alt="Rayan Elguerdaoui, Junior Developer" loading="lazy">
               <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-emerald-400/5"></div>
               <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900/90 to-transparent"></div>
               <div class="absolute bottom-6 left-6">
                 <h3 class="text-2xl font-bold gradient-text">Junior Developer</h3>
-                <!-- <p class="text-slate-400">Freelancing since 2023</p> -->
               </div>
             </div>
             <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-lg bg-blue-600 flex items-center justify-center">
@@ -265,7 +285,7 @@
     </div>
   </section>
 
-  <!-- Skills Section (Raw and Visible) -->
+  <!-- Skills Section -->
   <section id="skills">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
@@ -276,62 +296,62 @@
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🌐</div>
           <h3 class="font-semibold mb-2 text-white">HTML</h3>
           <p class="text-slate-400 text-sm">Structure</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🎨</div>
           <h3 class="font-semibold mb-2 text-white">CSS</h3>
           <p class="text-slate-400 text-sm">Styling</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🌊</div>
           <h3 class="font-semibold mb-2 text-white">Tailwind</h3>
           <p class="text-slate-400 text-sm">Utility CSS</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">⚡</div>
           <h3 class="font-semibold mb-2 text-white">JavaScript</h3>
           <p class="text-slate-400 text-sm">Frontend</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🐘</div>
           <h3 class="font-semibold mb-2 text-white">PHP</h3>
           <p class="text-slate-400 text-sm">Backend</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🧩</div>
           <h3 class="font-semibold mb-2 text-white">Laravel</h3>
           <p class="text-slate-400 text-sm">Framework</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🐳</div>
           <h3 class="font-semibold mb-2 text-white">Docker</h3>
           <p class="text-slate-400 text-sm">Containers</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🗄️</div>
           <h3 class="font-semibold mb-2 text-white">MySQL</h3>
           <p class="text-slate-400 text-sm">Database</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">📊</div>
           <h3 class="font-semibold mb-2 text-white">PostgreSQL</h3>
           <p class="text-slate-400 text-sm">Database</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🔄</div>
           <h3 class="font-semibold mb-2 text-white">REST API</h3>
           <p class="text-slate-400 text-sm">Integration</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">🔀</div>
           <h3 class="font-semibold mb-2 text-white">Git</h3>
           <p class="text-slate-400 text-sm">Version Control</p>
         </div>
-        <div class="skill-card">
+        <div class="skill-card gradient-border">
           <div class="text-2xl mb-4">⚛️</div>
           <h3 class="font-semibold mb-2 text-white">React</h3>
           <p class="text-slate-400 text-sm">Frontend Library</p>
@@ -340,37 +360,34 @@
     </div>
   </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-20">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold mb-2">Featured <span class="gradient-text">Projects</span></h2>
-      <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-emerald-400 mx-auto mb-6"></div>
-      <p class="text-slate-300 max-w-2xl mx-auto">
-        A selection of my recent work that showcases my skills and capabilities.
-      </p>
+  <!-- Projects Section -->
+  <section id="projects" class="py-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-2">Featured <span class="gradient-text">Projects</span></h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-emerald-400 mx-auto mb-6"></div>
+        <p class="text-slate-300 max-w-2xl mx-auto">
+          A selection of my recent work that showcases my skills and capabilities.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container"></div>
+      <div class="text-center mt-16">
+        <h3 class="text-2xl font-bold gradient-text mb-4">
+          🚀 Exciting Projects on the Horizon!
+        </h3>
+        <p class="text-slate-400 text-lg">
+          Stay tuned for more innovative and impactful creations.
+        </p>
+      </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container"></div>
-    
-    <!-- "Coming Soon" message properly placed within the container -->
-    <div class="text-center mt-16">
-      <h3 class="text-2xl font-bold gradient-text mb-4">
-        🚀 Exciting Projects on the Horizon!
-      </h3>
-      <p class="text-slate-400 text-lg">
-        🚧 Stay tuned for more innovative and impactful creations. The best is yet to come! 
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Experience Section -->
   <section id="experience" class="py-20 bg-slate-800/50">
     <div class="container mx-auto px-6">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold mb-2"> <span class="gradient-text">Education</span></h2>
+          <h2 class="text-3xl font-bold mb-2"><span class="gradient-text">Education</span></h2>
           <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-emerald-400 mb-6"></div>
           <p class="text-slate-300 mb-8">
             My professional journey as a web developer.
@@ -403,58 +420,127 @@
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Form -->
         <div class="bg-slate-800/70 backdrop-blur p-8 rounded-2xl gradient-border">
           <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
           <form id="contact-form">
             <div class="mb-6">
               <label for="name" class="block text-slate-300 mb-2">Name</label>
-              <input type="text" id="name" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your name">
+              <input 
+                type="text" 
+                id="name" 
+                class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition-colors" 
+                placeholder="Your name" 
+                aria-required="true" 
+                aria-describedby="name-error"
+              >
+              <div id="name-error" class="text-red-400 text-sm mt-1 hidden">Name must be at least 2 characters.</div>
             </div>
             <div class="mb-6">
               <label for="email" class="block text-slate-300 mb-2">Email</label>
-              <input type="email" id="email" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your email">
+              <input 
+                type="email" 
+                id="email" 
+                class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition-colors" 
+                placeholder="Your email" 
+                aria-required="true" 
+                aria-describedby="email-error"
+              >
+              <div id="email-error" class="text-red-400 text-sm mt-1 hidden">Please enter a valid email.</div>
             </div>
             <div class="mb-6">
               <label for="message" class="block text-slate-300 mb-2">Message</label>
-              <textarea id="message" rows="5" class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your message"></textarea>
+              <textarea 
+                id="message" 
+                rows="5" 
+                class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 transition-colors" 
+                placeholder="Your message" 
+                aria-required="true" 
+                aria-describedby="message-error"
+              ></textarea>
+              <div id="message-error" class="text-red-400 text-sm mt-1 hidden">Message must be at least 10 characters.</div>
             </div>
-            <button type="submit" class="inline-block bg-gradient-to-r from-blue-600 to-emerald-400 px-6 py-3 rounded-full font-medium transition-all transform hover:scale-105 hover:shadow-lg w-full">Send Message</button>
+            <div id="form-message" class="hidden mb-6 p-4 rounded-lg"></div>
+            <button 
+              type="submit" 
+              class="inline-block bg-gradient-to-r from-blue-600 to-emerald-400 px-6 py-3 rounded-full font-medium transition-all transform hover:scale-105 hover:shadow-lg w-full"
+              aria-label="Send message"
+            >
+              Send Message
+            </button>
           </form>
         </div>
+        <!-- Contact Information -->
         <div class="flex flex-col justify-between">
-          <div>
-            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-            <div class="space-y-6">
-              <div class="flex items-start">
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-xl">📧</span>
+          <div class="bg-slate-800/70 backdrop-blur p-8 rounded-2xl gradient-border">
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
+            <address class="space-y-6 not-italic">
+              <!-- Email -->
+              <div class="flex items-start group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
+                  <span class="text-xl" aria-hidden="true">📧</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg">Email</h4>
-                  <p class="text-slate-300">contact@rayan-dev.com</p>
+                  <h4 class="font-semibold text-lg text-white">Email</h4>
+                  <p class="text-slate-300">
+                    <a 
+                      href="mailto:rayan.elguerdaoui1@gmail.com" 
+                      class="hover:text-blue-400 transition-colors" 
+                      aria-label="Send email to Rayan Elguerdaoui"
+                      onclick="gtag('event', 'contact_email_click', { event_category: 'Contact', event_label: 'Email Click' });"
+                    >
+                      rayan.elguerdaoui1@gmail.com
+                    </a>
+                  </p>
                 </div>
               </div>
-              <div class="flex items-start">
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4">
-                  <span class="text-xl">📍</span>
+              <!-- Location -->
+              <div class="flex items-start group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
+                  <span class="text-xl" aria-hidden="true">📍</span>
                 </div>
                 <div>
-                  <h4 class="font-semibold text-lg">Location</h4>
+                  <h4 class="font-semibold text-lg text-white">Location</h4>
                   <p class="text-slate-300">Paris, France</p>
                 </div>
               </div>
-            </div>
+              <!-- Download CV -->
+              <div class="flex items-start group">
+                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
+                  <span class="text-xl" aria-hidden="true">📄</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-lg text-white mb-2">Download CV</h4>
+                  <a 
+                    href="Rayan (1).pdf" 
+                    download 
+                    class="inline-block bg-gradient-to-r from-blue-600 to-emerald-400 px-6 py-3 rounded-full font-medium text-white transition-all transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                    aria-label="Download Rayan Elguerdaoui's CV"
+                    onclick="gtag('event', 'download_cv', { event_category: 'Contact', event_label: 'CV Download' });"
+                  >
+                    Download Now
+                  </a>
+                </div>
+              </div>
+            </address>
           </div>
           <div class="mt-12">
             <h3 class="text-2xl font-bold mb-6">Follow Me</h3>
             <div class="flex space-x-4">
-  
-              <a href="https://github.com/rayan4-dot" class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a 
+                href="https://github.com/rayan4-dot" 
+                class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors" 
+                aria-label="Visit Rayan's GitHub profile"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/in/rayan-elguerdaoui/" class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a 
+                href="https://www.linkedin.com/in/rayan-elguerdaoui/" 
+                class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors" 
+                aria-label="Visit Rayan's LinkedIn profile"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
                 </svg>
@@ -470,15 +556,15 @@
   <footer class="py-10 bg-slate-900">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
-        <a href="#home" class="text-2xl font-bold gradient-text mb-4 md:mb-0">Rayan.</a>
-        <div class="flex flex-wrap justify-center gap-6">
+        <a href="#home" class="text-2xl font-bold gradient-text mb-4 md:mb-0" aria-label="Rayan's Portfolio Home">Rayan.</a>
+        <nav class="flex flex-wrap justify-center gap-6" role="navigation">
           <a href="#home" class="nav-link">Home</a>
           <a href="#about" class="nav-link">About</a>
           <a href="#skills" class="nav-link">Skills</a>
           <a href="#projects" class="nav-link">Projects</a>
           <a href="#experience" class="nav-link">Education</a>
           <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        </nav>
       </div>
       <div class="border-t border-slate-800 mt-8 pt-8 text-center">
         <p class="text-slate-400">© 2025 Rayan. All rights reserved.</p>
@@ -487,7 +573,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 p-3 rounded-full hidden">
+  <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 p-3 rounded-full hidden" aria-label="Scroll back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
     </svg>
@@ -495,6 +581,9 @@
 
   <!-- JavaScript -->
   <script>
+    // Initialize EmailJS (replace with your Public Key)
+    emailjs.init('pXcroaiU-2VwvSLKd');
+
     // Mobile Menu Toggle
     const menuButton = document.getElementById('menu-button');
     const closeMenuButton = document.getElementById('close-menu');
@@ -555,89 +644,86 @@
     }
     setTimeout(typeRole, 1000);
 
- // Dynamic Projects
-const projects = [
-  {
-    name: 'Youdemy',
-    emoji: '🎓',
-    desc: 'An e-learning platform with rich features for online education.',
-    tech: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
-    link: 'https://github.com/rayan4-dot/Youdemy'
-  },
-  {
-    name: 'Blogging',
-    emoji: '📝',
-    desc: 'A scalable blogging system with dynamic content management.',
-    tech: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
-    link: 'https://github.com/rayan4-dot/Dev-Blog.git'
-  },
-  {
-    name: 'HR Management',
-    emoji: '👥',
-    desc: 'A comprehensive HR tool for workforce management.',
-    tech: ['Laravel', 'Blade', 'JavaScript', 'MySQL'],
-    link: 'https://github.com/rayan4-dot/HRMS'
-  },
-  // {
-  //   name: 'Crunchyroll Clone',
-  //   emoji: '🎬',
-  //   desc: 'A streaming service replica with real-time features.',
-  //   tech: ['Laravel', 'JavaScript', 'Sockets', 'Docker'],
-  //   link: 'https://example.com/crunchyroll-clone'
-  // },
-  {
-    name: 'E-learning',
-    emoji: '📚',
-    desc: 'A modern learning management system with API integration.',
-    tech: ['Laravel', 'Postman', 'MySQL'],
-    link: 'https://github.com/rayan4-dot/Rest_api-'
-  },
-  {
-    name: 'Eventbrite',
-    emoji: '🎉',
-    desc: 'Event Management System with user-friendly features.',
-    tech: ['PHP', 'Twig', 'PostgreSql','Javascript'],
-    link: 'https://github.com/rayan4-dot/Eventbrite.git'
-  },
+    // Dynamic Projects
+    const projects = [
+      {
+        name: 'Youdemy',
+        emoji: '🎓',
+        desc: 'An e-learning platform with rich features for online education.',
+        tech: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
+        link: 'https://github.com/rayan4-dot/Youdemy'
+      },
+      {
+        name: 'Blogging',
+        emoji: '📝',
+        desc: 'A scalable blogging system with dynamic content management.',
+        tech: ['PHP', 'JavaScript', 'Tailwind', 'MySQL'],
+        link: 'https://github.com/rayan4-dot/Dev-Blog.git'
+      },
+      {
+        name: 'HR Management',
+        emoji: '👥',
+        desc: 'A comprehensive HR tool for workforce management.',
+        tech: ['Laravel', 'Blade', 'JavaScript', 'MySQL'],
+        link: 'https://github.com/rayan4-dot/HRMS'
+      },
+      {
+        name: 'E-learning',
+        emoji: '📚',
+        desc: 'A modern learning management system with API integration.',
+        tech: ['Laravel', 'Postman', 'MySQL'],
+        link: 'https://github.com/rayan4-dot/Rest_api-'
+      },
+      {
+        name: 'Eventbrite',
+        emoji: '🎉',
+        desc: 'Event Management System with user-friendly features.',
+        tech: ['PHP', 'Twig', 'PostgreSql', 'Javascript'],
+        link: 'https://github.com/rayan4-dot/Eventbrite.git'
+      },
+      {
+        name: 'E-learning - Frontend',
+        emoji: '📘',
+        desc: 'A modern learning management system with API and React.',
+        tech: ['Laravel', 'Postman', 'MySQL', 'React', 'Vite', 'Tailwind'],
+        link: 'https://github.com/rayan4-dot/React_brief.git'
+      }
+    ];
 
-  {
-    name: 'E-learning - Frontend',
-    emoji: '📘',
-    desc: 'A modern learning management system with API and React.',
-    tech: ['Laravel', 'Postman', 'MySQL','React','Vite','Tailwind'],
-    link: 'https://github.com/rayan4-dot/React_brief.git'
-  }
-];
-
-const projectsContainer = document.getElementById('projects-container');
-projects.forEach(project => {
-  const projectElement = document.createElement('div');
-  projectElement.className = 'project-card bg-slate-800 rounded-xl overflow-hidden relative group';
-  projectElement.innerHTML = `
-    <div class="aspect-video bg-blue-900/30 flex items-center justify-center">
-      <span class="text-5xl">${project.emoji}</span>
-    </div>
-    <div class="p-6">
-      <h3 class="text-xl font-bold mb-2">${project.name}</h3>
-      <p class="text-slate-400 text-sm mb-4">${project.desc}</p>
-      <div class="flex flex-wrap gap-2">
-        ${project.tech.map(tech => `<span class="text-xs px-2 py-1 bg-blue-900/40 text-blue-300 rounded-full">${tech}</span>`).join('')}
-      </div>
-    </div>
-    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-blue-900/90 to-blue-600/50 flex items-center justify-center opacity-0 transition-opacity">
-      <a href="${project.link}" target="_blank" class="bg-white text-blue-900 px-6 py-3 rounded-full font-semibold transform transition-transform hover:scale-105">View Project</a>
-    </div>
-  `;
-  projectsContainer.appendChild(projectElement);
-});
+    const projectsContainer = document.getElementById('projects-container');
+    projects.forEach(project => {
+      const projectElement = document.createElement('div');
+      projectElement.className = 'project-card bg-slate-800 rounded-xl overflow-hidden relative group gradient-border';
+      projectElement.innerHTML = `
+        <div class="aspect-video bg-blue-900/30 flex items-center justify-center">
+          <span class="text-5xl">${project.emoji}</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">${project.name}</h3>
+          <p class="text-slate-400 text-sm mb-4">${project.desc}</p>
+          <div class="flex flex-wrap gap-2">
+            ${project.tech.map(tech => `<span class="text-xs px-2 py-1 bg-blue-900/40 text-blue-300 rounded-full">${tech}</span>`).join('')}
+          </div>
+        </div>
+        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-blue-900/90 to-blue-600/50 flex items-center justify-center opacity-0 transition-opacity">
+          <a href="${project.link}" target="_blank" class="bg-white text-blue-900 px-6 py-3 rounded-full font-semibold transform transition-transform hover:scale-105" aria-label="View ${project.name} project">View Project</a>
+        </div>
+      `;
+      projectsContainer.appendChild(projectElement);
+    });
 
     // Dynamic Experience
     const experiences = [
-      { title: 'Junior Full Stack Developer', company: 'Youcode-UM6P ', period: '2024 - Present', tasks: [
-        'Developed multiple web applications using Laravel, PHP, and JavaScript',
-        'Integrated RESTful APIs and managed databases with MySQL and PostgreSQL',
-        'Utilized Docker for containerized development environments'
-      ]}
+      {
+        title: 'Junior Full Stack Developer',
+        company: 'Youcode-UM6P',
+        period: '2024 - Present',
+        tasks: [
+          'Developed multiple web applications using Laravel, PHP, and JavaScript',
+          'Integrated RESTful APIs and managed databases with MySQL and PostgreSQL',
+          'Utilized Docker for containerized development environments'
+        ]
+      }
     ];
     const experienceContainer = document.getElementById('experience-container');
     experiences.forEach(exp => {
@@ -653,8 +739,88 @@ projects.forEach(project => {
       experienceContainer.appendChild(expElement);
     });
 
-    // GSAP Animations (Minimal Skills Animation)
-    document.addEventListener('DOMContentLoaded', () => {
+    // Contact Form with EmailJS
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+      const formMessage = document.getElementById('form-message');
+      let isValid = true;
+
+      // Reset error states
+      nameError.classList.add('hidden');
+      emailError.classList.add('hidden');
+      messageError.classList.add('hidden');
+      formMessage.classList.add('hidden');
+      formMessage.className = 'hidden mb-6 p-4 rounded-lg';
+
+      // Validation
+      if (name.length < 2) {
+        nameError.classList.remove('hidden');
+        isValid = false;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        emailError.classList.remove('hidden');
+        isValid = false;
+      }
+      if (message.length < 10) {
+        messageError.classList.remove('hidden');
+        isValid = false;
+      }
+
+    if (isValid) {
+      // Debug payload
+      const payload = {
+        from_name: name,
+        from_email: email,
+        message: message
+      };
+      console.log('Sending EmailJS request:', {
+        service: 'kudo_service',
+        template: 'template_bqxjqk4',
+        data: payload
+      });
+
+      // Add a brief delay to avoid spam flags (simulating human behavior)
+      setTimeout(() => {
+        // Send email via EmailJS
+        emailjs.send('kudo_service', 'template_bqxjqk4', payload)
+          .then(() => {
+            
+            // Success feedback
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('bg-green-900/50', 'text-green-300');
+            formMessage.textContent = 'Message sent successfully!';
+            contactForm.reset();
+
+            // Track submission (safe check for gtag)
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'contact_form_submit', {
+                event_category: 'Form',
+                event_label: 'Contact Form'
+              });
+            }
+          })
+          .catch((error) => {
+            // Log detailed error
+            console.error('EmailJS Error:', error.status, error.text, error);
+
+            // Error feedback with mailto fallback
+            formMessage.classList.remove('hidden');
+            formMessage.classList.add('bg-red-900/50', 'text-red-300');
+            formMessage.innerHTML = 'Failed to send message. <a href="mailto:rayan.elguerdaoui1@gmail.com" class="underline hover:text-blue-400">Email me directly</a>.';
+          });
+      }, 1000); // 1-sec
+      } // Close the if block
+    }); // Add missing closing brace for the contactForm event listener
+  
+      // GSAP Animations
+      document.addEventListener('DOMContentLoaded', () => {
       gsap.registerPlugin(ScrollTrigger);
 
       // Header Animation
@@ -665,7 +831,7 @@ projects.forEach(project => {
       gsap.from('#role-text', { opacity: 0, duration: 1, ease: 'power3.out', delay: 1 });
       gsap.from('#home p', { y: 30, opacity: 0, duration: 1, ease: 'power3.out', delay: 1.2 });
       gsap.from('#home .flex a', { y: 20, opacity: 0, stagger: 0.2, duration: 1, ease: 'power3.out', delay: 1.4 });
-      gsap.from('#home .order-1', { scale: 0.8, opacity: 0, duration: 1.5, ease: 'elastic.out(1, 0.5)', delay: 0.8 });
+      gsap.from('#home .order-1', { scale: 0.8, opacity: 0, duration: 1.5, ease: 'power3.out', delay: 0.8 });
 
       // About Section
       gsap.from('#about h2', { scrollTrigger: { trigger: '#about', start: 'top 80%' }, y: 50, opacity: 0, duration: 1, ease: 'power3.out' });
@@ -673,7 +839,7 @@ projects.forEach(project => {
       gsap.from('#about .md\\:w-1\\/2:last-child', { scrollTrigger: { trigger: '#about', start: 'top 80%' }, x: 100, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.4 });
       gsap.from('#about a', { scrollTrigger: { trigger: '#about', start: 'top 80%' }, scale: 0.9, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.6 });
 
-      // Skills Section (Simplified)
+      // Skills Section
       gsap.from('#skills h2', { scrollTrigger: { trigger: '#skills', start: 'top 80%' }, y: 50, opacity: 0, duration: 1, ease: 'power3.out' });
       gsap.from('#skills p', { scrollTrigger: { trigger: '#skills', start: 'top 80%' }, y: 30, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
       gsap.from('.skill-card', { 
@@ -692,7 +858,7 @@ projects.forEach(project => {
       gsap.from('.project-card', { scrollTrigger: { trigger: '#projects', start: 'top 80%' }, y: 50, opacity: 0, stagger: 0.2, duration: 0.8, ease: 'power3.out', delay: 0.4 });
 
       // Experience Section
-      gsap.from('#experience h2', { scrollTrigger: { trigger: '#experience', start: 'top 80%' }, y: 50, opacity: 0, duration: 1, ease: 'power3.out' });
+      gsap.from('#experience h2', { scrollTrigger: { trigger: '#ectories', start: 'top 80%' }, y: 50, opacity: 0, duration: 1, ease: 'power3.out' });
       gsap.from('#experience p', { scrollTrigger: { trigger: '#experience', start: 'top 80%' }, y: 30, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.2 });
       gsap.from('.timeline-item', { scrollTrigger: { trigger: '#experience', start: 'top 80%' }, x: -50, opacity: 0, stagger: 0.3, duration: 1, ease: 'power3.out', delay: 0.4 });
       gsap.from('#experience .aspect-video', { scrollTrigger: { trigger: '#experience', start: 'top 80%' }, scale: 0.9, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.6 });
@@ -722,8 +888,6 @@ projects.forEach(project => {
         }
       });
     });
-
-
   </script>
 </body>
 </html>
